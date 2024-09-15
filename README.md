@@ -19,3 +19,7 @@ This is a simple Android application showcasing modern Android development best 
 - **UI**: Jetpack Compose
 - **Networking**: Retrofit & OKHttp
 - **Unit Testing**: JUnit 5, MockK
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
