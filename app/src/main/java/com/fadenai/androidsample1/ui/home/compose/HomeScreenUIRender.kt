@@ -14,12 +14,13 @@ import com.fadenai.androidsample1.ui.theme.AppTheme
 @Composable
 fun HomeScreenUIRender(
     viewState: State<HomeViewState>,
+    onItemClicked: (id: Int) -> Unit,
     retryLoadList: () -> Unit
 ) {
     when (val state = viewState.value) {
         HomeViewState.Error -> ErrorScreen(retry = retryLoadList)
         HomeViewState.Loading -> LoadingProgressFullScreen()
-        is HomeViewState.Success -> HomeScreenContent(state.courses) {}
+        is HomeViewState.Success -> HomeScreenContent(state.courses, onItemClicked)
     }
 }
 
@@ -30,7 +31,7 @@ fun HomeScreenUIRender(
 private fun PreviewHomeScreenUIRenderLoading() {
     AppTheme {
         val viewState = remember { mutableStateOf(HomeViewState.Loading) }
-        HomeScreenUIRender(viewState = viewState) { }
+        HomeScreenUIRender(viewState = viewState, {}) { }
     }
 }
 
@@ -39,7 +40,7 @@ private fun PreviewHomeScreenUIRenderLoading() {
 private fun PreviewHomeScreenUIRenderError() {
     AppTheme {
         val viewState = remember { mutableStateOf(HomeViewState.Error) }
-        HomeScreenUIRender(viewState = viewState) { }
+        HomeScreenUIRender(viewState = viewState, {}) { }
     }
 }
 
@@ -51,6 +52,6 @@ private fun PreviewHomeScreenUIRenderSuccess() {
             mutableStateOf(HomeViewState.Success(courses = mockCourseListEntity.groupBy { it.category }))
         }
 
-        HomeScreenUIRender(viewState = viewState) { }
+        HomeScreenUIRender(viewState = viewState, {}) { }
     }
 }

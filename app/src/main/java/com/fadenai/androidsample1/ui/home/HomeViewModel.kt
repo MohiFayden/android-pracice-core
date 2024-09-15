@@ -16,6 +16,10 @@ class HomeViewModel @Inject constructor(private val repo: DataRepository) : View
         MutableStateFlow(HomeViewState.Loading)
     val viewState: StateFlow<HomeViewState> = _viewState
 
+    init {
+        loadCourseList()
+    }
+
     fun loadCourseList() {
         viewModelScope.launch {
             _viewState.value = HomeViewState.Loading

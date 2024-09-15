@@ -69,6 +69,8 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.androidx.runtime.livedata)
     implementation(libs.androidx.lifecycle.compose.viewModel)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     debugImplementation(libs.androidx.ui.tooling)
 

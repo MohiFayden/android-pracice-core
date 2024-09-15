@@ -3,7 +3,7 @@ package com.fadenai.androidsample1.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.fadenai.androidsample1.ui.home.compose.HomeScreen
+import com.fadenai.androidsample1.ui.navigation.MainApp
 import com.fadenai.androidsample1.ui.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AppTheme {
-                HomeScreen()
+                MainApp()
             }
         }
     }

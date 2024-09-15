@@ -104,7 +104,7 @@ private fun ListItem(
                 .build()
 
             AsyncImage(
-                model = imageRequest,
+                model = course.img,
                 contentDescription = "Course Image",
                 modifier = Modifier
                     .padding(end = 8.dp)
