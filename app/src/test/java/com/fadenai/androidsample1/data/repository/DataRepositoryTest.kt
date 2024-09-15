@@ -1,7 +1,7 @@
 package com.fadenai.androidsample1.data.repository
 
-import com.fadenai.androidsample1.data.entity.CourseEntity
-import com.fadenai.androidsample1.data.network.CourseJM
+import com.fadenai.androidsample1.data.mock.mockCourseListEntity
+import com.fadenai.androidsample1.data.mock.mockCourseListJM
 import com.fadenai.androidsample1.data.network.NetworkAPI
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -29,12 +29,12 @@ class DataRepositoryTest {
 
     @Test
     fun `get course list successfully`() = runTest {
-        coEvery { api.getCourseList() } returns courseJsonList
+        coEvery { api.getCourseList() } returns mockCourseListJM
 
         val result = repository.getCourseList()
 
         assertEquals(
-            expected = courseEntityList,
+            expected = mockCourseListEntity,
             actual = result
         )
 
@@ -72,59 +72,4 @@ class DataRepositoryTest {
     //-------------------- Data -------------------
 
     private val networkErrorMessage = "Network error"
-
-    private val courseJsonList: List<CourseJM> = listOf(
-        CourseJM(
-            id = 1,
-            title = "Introduction to Machine Learning",
-            img = "https://picsum.photos/200/300",
-            category = "Data Science",
-            instructor = "Andrew Ng",
-            rating = 4.8,
-            numRatings = 12500,
-            enrollment = 150000,
-            duration = 12,
-            tags = listOf("Machine Learning", "AI", "Data Science")
-        ),
-        CourseJM(
-            id = 2,
-            title = "Data Structures and Algorithms",
-            img = "https://picsum.photos/200/300",
-            category = "Computer Science",
-            instructor = "Robert Sedgewick",
-            rating = 4.7,
-            numRatings = 9800,
-            enrollment = 90000,
-            duration = 10,
-            tags = listOf("Algorithms", "Data Structures", "Programming")
-        )
-    )
-
-    private val courseEntityList: List<CourseEntity> = listOf(
-        CourseEntity(
-            id = 1,
-            title = "Introduction to Machine Learning",
-            img = "https://picsum.photos/200/300",
-            category = "Data Science",
-            instructor = "Andrew Ng",
-            rating = 4.8,
-            numRatings = 12500,
-            enrollment = 150000,
-            duration = 12,
-            tags = listOf("Machine Learning", "AI", "Data Science")
-        ),
-        CourseEntity(
-            id = 2,
-            title = "Data Structures and Algorithms",
-            img = "https://picsum.photos/200/300",
-            category = "Computer Science",
-            instructor = "Robert Sedgewick",
-            rating = 4.7,
-            numRatings = 9800,
-            enrollment = 90000,
-            duration = 10,
-            tags = listOf("Algorithms", "Data Structures", "Programming")
-        )
-    )
-
 }
