@@ -19,7 +19,7 @@ fun HomeScreenUIRender(
     when (val state = viewState.value) {
         HomeViewState.Error -> ErrorScreen(retry = retryLoadList)
         HomeViewState.Loading -> LoadingProgressFullScreen()
-        is HomeViewState.Success -> HomeScreenContent(state.list)
+        is HomeViewState.Success -> HomeScreenContent(state.list) {}
     }
 }
 
