@@ -16,7 +16,9 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+//        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "de.mannodermaus.junit5.AndroidJUnit5Builder"
+
     }
 
     buildTypes {
@@ -40,6 +42,10 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
+    }
+
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
 }
 
@@ -74,14 +80,22 @@ dependencies {
     implementation(libs.room)
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
+    implementation(libs.android.database.sqlcipher)
 
     // Hilt
     implementation(libs.google.dagger.hilt)
     kapt(libs.google.dagger.hilt.compiler)
 
+    // Network
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
     // Test
 //    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
+    testImplementation(libs.androidx.test.core)
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly(libs.junit.jupiter.engin)
     testImplementation(libs.mockk)
@@ -89,6 +103,24 @@ dependencies {
     testImplementation(libs.coroutines.test)
     testImplementation(libs.turbine)
     testImplementation(kotlin("test"))
+    testImplementation(libs.androidx.room.testing)
 
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
+
+
+    // ToDo: trying to run the CourseDaoTest to test Room DB
+//    androidTestImplementation(libs.androidx.test.core)
+//    androidTestImplementation(libs.junit.jupiter)
+//    androidTestRuntimeOnly(libs.junit.jupiter.engin)
+//    androidTestImplementation(libs.coroutines.test)
+//    androidTestImplementation(kotlin("test"))
+
+    // JUnit 5 API and dependencies
+//    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+
+   // JUnit 5 for instrumented Android tests
+//    androidTestImplementation("de.mannodermaus.junit5:android-test-core:1.3.0")
+//    androidTestRuntimeOnly("de.mannodermaus.junit5:android-test-runner:1.3.0")
 }
