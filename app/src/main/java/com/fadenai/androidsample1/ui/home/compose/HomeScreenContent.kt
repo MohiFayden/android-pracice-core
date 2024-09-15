@@ -22,20 +22,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.fadenai.androidsample1.R
 import com.fadenai.androidsample1.data.entity.CourseEntity
-import com.fadenai.androidsample1.data.mock.mockCompleteListEntity
+import com.fadenai.androidsample1.data.mock.mockCategorizedCourses
 import com.fadenai.androidsample1.ui.theme.AppTheme
 
 @Composable
 fun HomeScreenContent(
-    courseList: List<CourseEntity>,
+    courseList: Map<String, List<CourseEntity>>,
     onItemClicked: (id: Int) -> Unit
 ) {
 
@@ -47,12 +49,24 @@ fun HomeScreenContent(
             Spacer(modifier = Modifier.height(16.dp))
         }
 
-        items(courseList) { item ->
-            ListItem(item, onItemClicked)
+        courseList.forEach { (category, courses) ->
+
+            item {
+                Text(
+                    text = category,
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+
+            items(courses) { item ->
+                ListItem(item, onItemClicked)
+            }
         }
 
+
         item {
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(24.dp))
         }
     }
 }
@@ -81,8 +95,16 @@ private fun ListItem(
 
             val (image, title, instructor, rating, duration) = createRefs()
 
+            // Create an ImageRequest and disable caching for testing purpose
+            val imageRequest = ImageRequest.Builder(LocalContext.current)
+//                .data(course.img ?: R.drawable.ic_launcher_background)
+                .data(course.img)
+                .memoryCachePolicy(coil.request.CachePolicy.DISABLED)  // Disable memory cache
+                .diskCachePolicy(coil.request.CachePolicy.DISABLED)    // Disable disk cache
+                .build()
+
             AsyncImage(
-                model = course.img,
+                model = imageRequest,
                 contentDescription = "Course Image",
                 modifier = Modifier
                     .padding(end = 8.dp)
@@ -167,6 +189,6 @@ private fun RatingBar(modifier: Modifier, rating: Double) {
 @Composable
 private fun PreviewHomeScreenContent() {
     AppTheme {
-        HomeScreenContent(courseList = mockCompleteListEntity) {}
+        HomeScreenContent(courseList = mockCategorizedCourses) {}
     }
 }

@@ -19,7 +19,7 @@ fun HomeScreenUIRender(
     when (val state = viewState.value) {
         HomeViewState.Error -> ErrorScreen(retry = retryLoadList)
         HomeViewState.Loading -> LoadingProgressFullScreen()
-        is HomeViewState.Success -> HomeScreenContent(state.list) {}
+        is HomeViewState.Success -> HomeScreenContent(state.courses) {}
     }
 }
 
@@ -48,7 +48,7 @@ private fun PreviewHomeScreenUIRenderError() {
 private fun PreviewHomeScreenUIRenderSuccess() {
     AppTheme {
         val viewState = remember {
-            mutableStateOf(HomeViewState.Success(list = mockCourseListEntity))
+            mutableStateOf(HomeViewState.Success(courses = mockCourseListEntity.groupBy { it.category }))
         }
 
         HomeScreenUIRender(viewState = viewState) { }

@@ -8,5 +8,5 @@ sealed interface HomeViewState {
 
     data object Error : HomeViewState
 
-    data class Success(val list: List<CourseEntity>) : HomeViewState
+    data class Success(val courses: Map<String, List<CourseEntity>>) : HomeViewState
 }

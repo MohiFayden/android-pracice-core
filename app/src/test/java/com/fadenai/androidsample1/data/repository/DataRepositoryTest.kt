@@ -34,7 +34,7 @@ class DataRepositoryTest {
         val result = repository.getCourseList()
 
         assertEquals(
-            expected = mockCourseListEntity,
+            expected = mockCourseListEntity.groupBy { it.category },
             actual = result
         )
 

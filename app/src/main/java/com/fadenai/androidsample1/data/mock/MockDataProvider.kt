@@ -6,32 +6,6 @@ import com.fadenai.androidsample1.data.network.CourseJM
 /**
  * Warning: mockCourseListEntity and mockCourseListJM should have the same data and size as they are using in unit tests.
  */
-val mockCourseListEntity: List<CourseEntity> = listOf(
-    CourseEntity(
-        id = 1,
-        title = "Introduction to Machine Learning",
-        img = "https://picsum.photos/200/300",
-        category = "Data Science",
-        instructor = "Andrew Ng",
-        rating = 4.8,
-        numRatings = 12500,
-        enrollment = 150000,
-        duration = 12,
-        tags = listOf("Machine Learning", "AI", "Data Science")
-    ),
-    CourseEntity(
-        id = 2,
-        title = "Data Structures and Algorithms",
-        img = "https://picsum.photos/200/300",
-        category = "Computer Science",
-        instructor = "Robert Sedgewick",
-        rating = 3.7,
-        numRatings = 9800,
-        enrollment = 90000,
-        duration = 10,
-        tags = listOf("Algorithms", "Data Structures", "Programming")
-    )
-)
 
 val mockCourseListJM: List<CourseJM> = listOf(
     CourseJM(
@@ -59,6 +33,36 @@ val mockCourseListJM: List<CourseJM> = listOf(
         tags = listOf("Algorithms", "Data Structures", "Programming")
     )
 )
+
+val mockCourseListEntity: List<CourseEntity> = listOf(
+    CourseEntity(
+        id = 1,
+        title = "Introduction to Machine Learning",
+        img = "https://picsum.photos/200/300",
+        category = "Data Science",
+        instructor = "Andrew Ng",
+        rating = 4.8,
+        numRatings = 12500,
+        enrollment = 150000,
+        duration = 12,
+        tags = listOf("Machine Learning", "AI", "Data Science")
+    ),
+    CourseEntity(
+        id = 2,
+        title = "Data Structures and Algorithms",
+        img = "https://picsum.photos/200/300",
+        category = "Computer Science",
+        instructor = "Robert Sedgewick",
+        rating = 3.7,
+        numRatings = 9800,
+        enrollment = 90000,
+        duration = 10,
+        tags = listOf("Algorithms", "Data Structures", "Programming")
+    )
+)
+
+val mockCategorizedCourses: Map<String, List<CourseEntity>>
+    get() = mockCompleteListEntity.groupBy { it.category }
 
 val mockCompleteListEntity = listOf(
     CourseEntity(

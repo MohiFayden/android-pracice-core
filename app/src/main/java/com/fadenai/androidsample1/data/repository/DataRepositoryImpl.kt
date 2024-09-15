@@ -14,8 +14,11 @@ class DataRepositoryImpl @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : DataRepository {
 
-    override suspend fun getCourseList(): List<CourseEntity> = withContext(dispatcher) {
-        delay(1000) // Long time task simulation
-        api.getCourseList().toCourseEntity()
-    }
+    override suspend fun getCourseList(): Map<String, List<CourseEntity>> =
+        withContext(dispatcher) {
+            delay(1000) // Long time task simulation
+            api.getCourseList()
+                .toCourseEntity()
+                .groupBy { it.category }
+        }
 }
