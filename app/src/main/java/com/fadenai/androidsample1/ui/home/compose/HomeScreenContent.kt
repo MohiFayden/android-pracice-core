@@ -1,6 +1,5 @@
 package com.fadenai.androidsample1.ui.home.compose
 
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,11 +9,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,6 +29,7 @@ import coil.request.ImageRequest
 import com.fadenai.androidsample1.R
 import com.fadenai.androidsample1.data.entity.CourseEntity
 import com.fadenai.androidsample1.data.mock.mockCategorizedCourses
+import com.fadenai.androidsample1.ui.composecommon.RatingBar
 import com.fadenai.androidsample1.ui.theme.AppTheme
 
 @Composable
@@ -164,22 +161,6 @@ private fun ListItem(
                         end.linkTo(parent.end)
                     },
                 style = MaterialTheme.typography.bodySmall
-            )
-        }
-    }
-}
-
-@Composable
-private fun RatingBar(modifier: Modifier, rating: Double) {
-    Row(
-        modifier = modifier
-    ) {
-        (1..5).forEach { step ->
-            val fill = step <= rating.toInt()
-            Icon(
-                imageVector = Icons.Filled.Star,
-                contentDescription = "Rating bar",
-                tint = if (fill) Color(0xFFFFD700) else Color.LightGray
             )
         }
     }

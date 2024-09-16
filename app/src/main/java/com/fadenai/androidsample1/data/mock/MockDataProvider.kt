@@ -34,19 +34,21 @@ val mockTwoCourseListJM: List<CourseJM> = listOf(
     )
 )
 
+val mockCourseEntity = CourseEntity(
+    id = 1,
+    title = "Introduction to Machine Learning",
+    img = "https://picsum.photos/200/300",
+    category = "Data Science",
+    instructor = "Andrew Ng",
+    rating = 4.8,
+    numRatings = 12500,
+    enrollment = 150000,
+    duration = 12,
+    tags = listOf("Machine Learning", "AI", "Data Science")
+)
+
 val mockTwoCourseListEntity: List<CourseEntity> = listOf(
-    CourseEntity(
-        id = 1,
-        title = "Introduction to Machine Learning",
-        img = "https://picsum.photos/200/300",
-        category = "Data Science",
-        instructor = "Andrew Ng",
-        rating = 4.8,
-        numRatings = 12500,
-        enrollment = 150000,
-        duration = 12,
-        tags = listOf("Machine Learning", "AI", "Data Science")
-    ),
+    mockCourseEntity,
     CourseEntity(
         id = 2,
         title = "Data Structures and Algorithms",
