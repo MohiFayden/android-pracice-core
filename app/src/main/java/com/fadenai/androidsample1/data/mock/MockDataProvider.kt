@@ -7,7 +7,7 @@ import com.fadenai.androidsample1.data.network.CourseJM
  * Warning: mockCourseListEntity and mockCourseListJM should have the same data and size as they are using in unit tests.
  */
 
-val mockCourseListJM: List<CourseJM> = listOf(
+val mockTwoCourseListJM: List<CourseJM> = listOf(
     CourseJM(
         id = 1,
         title = "Introduction to Machine Learning",
@@ -34,7 +34,7 @@ val mockCourseListJM: List<CourseJM> = listOf(
     )
 )
 
-val mockCourseListEntity: List<CourseEntity> = listOf(
+val mockTwoCourseListEntity: List<CourseEntity> = listOf(
     CourseEntity(
         id = 1,
         title = "Introduction to Machine Learning",

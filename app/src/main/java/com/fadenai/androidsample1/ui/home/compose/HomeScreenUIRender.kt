@@ -5,7 +5,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
-import com.fadenai.androidsample1.data.mock.mockCourseListEntity
+import com.fadenai.androidsample1.data.mock.mockTwoCourseListEntity
 import com.fadenai.androidsample1.ui.composecommon.ErrorScreen
 import com.fadenai.androidsample1.ui.composecommon.LoadingProgressFullScreen
 import com.fadenai.androidsample1.ui.home.HomeViewState
@@ -49,7 +49,7 @@ private fun PreviewHomeScreenUIRenderError() {
 private fun PreviewHomeScreenUIRenderSuccess() {
     AppTheme {
         val viewState = remember {
-            mutableStateOf(HomeViewState.Success(courses = mockCourseListEntity.groupBy { it.category }))
+            mutableStateOf(HomeViewState.Success(courses = mockTwoCourseListEntity.groupBy { it.category }))
         }
 
         HomeScreenUIRender(viewState = viewState, {}) { }

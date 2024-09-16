@@ -1,7 +1,7 @@
 package com.fadenai.androidsample1.data.repository
 
-import com.fadenai.androidsample1.data.mock.mockCourseListEntity
-import com.fadenai.androidsample1.data.mock.mockCourseListJM
+import com.fadenai.androidsample1.data.mock.mockTwoCourseListEntity
+import com.fadenai.androidsample1.data.mock.mockTwoCourseListJM
 import com.fadenai.androidsample1.data.network.NetworkAPI
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -29,12 +29,12 @@ class DataRepositoryTest {
 
     @Test
     fun `get course list successfully`() = runTest {
-        coEvery { api.getCourseList() } returns mockCourseListJM
+        coEvery { api.getCourseList() } returns mockTwoCourseListJM
 
         val result = repository.getCourseList()
 
         assertEquals(
-            expected = mockCourseListEntity.groupBy { it.category },
+            expected = mockTwoCourseListEntity.groupBy { it.category },
             actual = result
         )
 
