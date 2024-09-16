@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import com.fadenai.androidsample1.data.db.AppDatabase
 import com.fadenai.androidsample1.data.db.CourseDAO
-import com.fadenai.androidsample1.data.db.ListTypeConverters
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,7 +32,6 @@ object DatabaseModule {
             "app_database"
         )
             .openHelperFactory(factory)
-            .addTypeConverter(ListTypeConverters::class.java)
             .build()
     }
 

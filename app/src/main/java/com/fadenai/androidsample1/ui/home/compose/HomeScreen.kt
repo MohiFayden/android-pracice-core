@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
-import com.fadenai.androidsample1.ui.detail.compose.DefaultTopBar
+import com.fadenai.androidsample1.ui.composecommon.DefaultTopBar
 import com.fadenai.androidsample1.ui.home.HomeViewModel
 import com.fadenai.androidsample1.ui.navigation.ScreensName
 
@@ -36,8 +36,8 @@ fun HomeScreen(
         ) {
             HomeScreenUIRender(
                 viewState = viewModel.viewState.collectAsStateWithLifecycle(),
-                onItemClicked = {
-                    navController.navigate(ScreensName.DETAIL_SCREEN)
+                onItemClicked = { id ->
+                    navController.navigate("${ScreensName.DETAIL_SCREEN}/$id")
                 }
             ) {
                 viewModel.loadCourseList()

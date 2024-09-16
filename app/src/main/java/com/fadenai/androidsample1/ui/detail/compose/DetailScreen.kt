@@ -4,16 +4,26 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import com.fadenai.androidsample1.ui.composecommon.DefaultTopBar
+import com.fadenai.androidsample1.ui.detail.DetailViewModel
 
 @Composable
 fun DetailScreen(
-    navController: NavHostController
+    navController: NavHostController,
+    courseId: Int,
+    viewModel: DetailViewModel = hiltViewModel()
 ) {
+
+    LaunchedEffect(Unit) {
+        viewModel.getCourse(courseId)
+    }
 
     Scaffold(
         topBar = {
@@ -28,9 +38,7 @@ fun DetailScreen(
                 .padding(contentPadding),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = "Detail Screen"
-            )
+            DetailScreenUIRender(viewModel.viewState.collectAsStateWithLifecycle())
         }
     }
 }

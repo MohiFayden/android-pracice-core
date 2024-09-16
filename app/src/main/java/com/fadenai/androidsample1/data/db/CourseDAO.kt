@@ -13,6 +13,9 @@ interface CourseDAO {
     @Query("SELECT * FROM course_item")
     suspend fun getAll(): List<CourseEntity>
 
+    @Query("SELECT * FROM course_item WHERE id = :id")
+    suspend fun getCourse(id: Int): CourseEntity
+
     @Insert
     suspend fun insertAll(courses: List<CourseEntity>)
 
