@@ -29,6 +29,10 @@ turbine = "1.1.0"
 glide = "4.12.0"
 androidTest = "1.5.0"
 
+rxAndroidVersion = "3.0.2"
+rxJavaVersion = "3.1.5"
+rxKotlinVersion = "3.0.1"
+
 [libraries]
 
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -79,6 +83,11 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "loggingInterceptor" }
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
+
+# RX
+reactivex-rxAndroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxAndroidVersion"}
+reactivex-rxJava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxJavaVersion"}
+reactivex-rxKotlin = { module = "io.reactivex.rxjava3:rxkotlin", version.ref = "rxKotlinVersion"}
 
 # Test
 #junit = { group = "junit", name = "junit", version.ref = "junit" }

@@ -1,6 +1,6 @@
 package com.fadenai.androidsample1.data.entity
 
-import com.fadenai.androidsample1.data.network.CourseJM
+import com.fadenai.androidsample1.data.network.jsonmodels.CourseJM
 
 fun List<CourseJM>.toCourseEntity(): List<CourseEntity> = map { it.toEntity() }
 

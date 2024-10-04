@@ -1,4 +1,4 @@
-package com.fadenai.androidsample1.data.network
+package com.fadenai.androidsample1.data.network.jsonmodels
 
 data class CourseJM(
     val id: Int,

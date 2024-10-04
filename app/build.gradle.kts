@@ -95,6 +95,11 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
 
+    // Rx
+    implementation(libs.reactivex.rxAndroid)
+    implementation(libs.reactivex.rxJava)
+    implementation(libs.reactivex.rxKotlin)
+
     // Test
 //    testImplementation(libs.junit)
     testImplementation(libs.androidx.test.core)

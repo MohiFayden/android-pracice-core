@@ -1,20 +1,12 @@
 package com.fadenai.androidsample1.data.db
 
-import android.content.Context
-import android.os.Looper
 import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
-import com.fadenai.androidsample1.TestExecutorAndDispatcherExtension
 import com.fadenai.androidsample1.data.entity.CourseEntity
-import io.mockk.every
-import io.mockk.mockk
-import io.mockk.mockkStatic
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 import kotlin.test.assertEquals
 
 //ToDo: Fix issue with this class

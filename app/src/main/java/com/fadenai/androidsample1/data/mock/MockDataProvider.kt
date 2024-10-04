@@ -1,7 +1,7 @@
 package com.fadenai.androidsample1.data.mock
 
 import com.fadenai.androidsample1.data.entity.CourseEntity
-import com.fadenai.androidsample1.data.network.CourseJM
+import com.fadenai.androidsample1.data.network.jsonmodels.CourseJM
 
 /**
  * Warning: mockCourseListEntity and mockCourseListJM should have the same data and size as they are using in unit tests.
