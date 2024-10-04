@@ -6,7 +6,7 @@
 - Network API interface
 - Json models
 
-### 2. Network - OKHttp
+### 2. Network - OKHttp & Retrofit
 - Network Module
 
 
