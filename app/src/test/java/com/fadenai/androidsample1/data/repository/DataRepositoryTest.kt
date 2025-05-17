@@ -1,5 +1,6 @@
 package com.fadenai.androidsample1.data.repository
 
+import com.fadenai.androidsample1.data.db.CourseDAO
 import com.fadenai.androidsample1.data.mock.mockTwoCourseListEntity
 import com.fadenai.androidsample1.data.mock.mockTwoCourseListJM
 import com.fadenai.androidsample1.data.network.NetworkAPI
@@ -18,11 +19,13 @@ class DataRepositoryTest {
 
     private lateinit var repository: DataRepository
     private val api: NetworkAPI = mockk()
+    private val courseDAO: CourseDAO = mockk()
 
     @BeforeEach
     fun setup() {
         repository = DataRepositoryImpl(
             api = api,
+            courseDAO = courseDAO,
             dispatcher = Dispatchers.Unconfined
         )
     }
@@ -30,6 +33,8 @@ class DataRepositoryTest {
     @Test
     fun `get course list successfully`() = runTest {
         coEvery { api.getCourseList() } returns mockTwoCourseListJM
+        coEvery { courseDAO.deleteAll() } returns Unit
+        coEvery { courseDAO.insertAll(any()) } returns Unit
 
         val result = repository.getCourseList()
 
@@ -44,6 +49,8 @@ class DataRepositoryTest {
     @Test
     fun `get course list when API returns empty list`() = runTest {
         coEvery { api.getCourseList() } returns emptyList()
+        coEvery { courseDAO.deleteAll() } returns Unit
+        coEvery { courseDAO.insertAll(any()) } returns Unit
 
         val result = repository.getCourseList()
 
