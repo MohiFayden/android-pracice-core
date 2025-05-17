@@ -17,17 +17,17 @@
 ## More Info
 
 ### 1. Network links
-Base url
+- Base url
 ``
 http://demo6087393.mockable.io/
 ``
-List of courses
+- List of courses
 ``
 course_list
 ``
 
 ### 2. Sample Json
-``
+```json
 {
   "id": 1,
   "title": "Introduction to Machine Learning",
@@ -39,14 +39,16 @@ course_list
   "enrollment": 150000,
   "duration": 12,
   "tags": ["Machine Learning", "AI", "Data Science"]
-},
-``
+}
+```
+
 
 ### 3. Designs
 Home
 
-![Home Screen](home_screen.png)
+<img src="home_screen.png" alt="Home Screen" width="630" height="1400">
 
 Detail
 
-![Detail Screen](detail_screen.png)
+<img src="detail_screen.png" alt="Detail Screen" width="630" height="1400">
+
