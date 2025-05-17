@@ -45,8 +45,8 @@ course_list
 ### 3. Designs
 Home
 
-![Alt text](home_screen.png)
+![Home Screen](home_screen.png)
 
 Detail
 
-![Alt text](detail_screen.png)
+![Detail Screen](detail_screen.png)

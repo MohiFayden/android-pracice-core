@@ -20,6 +20,9 @@ This is a simple Android application showcasing modern Android development best 
 - **Networking**: Retrofit & OKHttp
 - **Unit Testing**: JUnit 5, MockK
 
+## Document
+[Check the Document](docs/Docs.md)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
