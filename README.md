@@ -1,4 +1,4 @@
-# Android Sample 1
+# Android Practice Core
 
 ## Overview
 This is a simple Android application showcasing modern Android development best practices, including MVVM architecture, dependency injection with Hilt, Jetpack Compose for UI, and unit testing. It also integrates Room for local data storage and Retrofit/OKHttp for network requests.
