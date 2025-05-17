@@ -18,13 +18,13 @@
 
 ### 1. Network links
 - Base url
-``
+```
 http://demo6087393.mockable.io/
-``
+```
 - List of courses
-``
+```
 course_list
-``
+```
 
 ### 2. Sample Json
 ```json
@@ -46,9 +46,9 @@ course_list
 ### 3. Designs
 Home
 
-<img src="home_screen.png" alt="Home Screen" width="630" height="1400">
+<img src="home_screen.png" alt="Home Screen" width="450" height="1000">
 
 Detail
 
-<img src="detail_screen.png" alt="Detail Screen" width="630" height="1400">
+<img src="detail_screen.png" alt="Detail Screen" width="450" height="1000">
 
