@@ -37,7 +37,7 @@ fun HomeScreen(
             HomeScreenUIRender(
                 viewState = viewModel.viewState.collectAsStateWithLifecycle(),
                 onItemClicked = { id ->
-                    navController.navigate("${ScreensName.DETAIL_SCREEN}/$id")
+                    navController.navigate("${ScreensName.DETAIL}/$id")
                 }
             ) {
                 viewModel.loadCourseList()

@@ -18,7 +18,7 @@ fun MainApp() {
     ) {
         composable(ScreensName.HOME) { HomeScreen(navController = navController) }
         composable(
-            route = "${ScreensName.DETAIL_SCREEN}/{id}",
+            route = "${ScreensName.DETAIL}/{id}",
             arguments = listOf(navArgument("id") { type = NavType.IntType })
         ) { backStackEntry ->
             val id = backStackEntry.arguments?.getInt("id") ?: 0
