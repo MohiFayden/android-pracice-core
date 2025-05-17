@@ -38,7 +38,7 @@ This is a simple Android application showcasing modern Android development best 
 
 ## More Info
 
-### 1. Network links
+### 1. APIs
 - Base url
 ```
 http://demo6087393.mockable.io/
