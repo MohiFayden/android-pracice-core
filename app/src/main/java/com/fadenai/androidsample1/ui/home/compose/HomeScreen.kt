@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -19,10 +20,9 @@ fun HomeScreen(
     navController: NavHostController
 ) {
 
-    // Calling load here will result in loading the list again after navigating back from detail
-//    LaunchedEffect(Unit) {
-//        viewModel.loadCourseList()
-//    }
+    LaunchedEffect(Unit) {
+        viewModel.loadCourseList()
+    }
 
     Scaffold(
         topBar = {
